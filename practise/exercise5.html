@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library System</title>
+</head>
+<body>
+    <script>
+        const bookTitle = "Just another day";
+
+        class Book {
+            constructor(title, author, publicationYear) {
+                this.title = title;
+                this.author = author;
+                this.publicationYear = publicationYear;
+                this.borrowed = false;
+            }
+
+            displayInfo() {
+                const status = this.borrowed ? "Borrowed" : "Available";
+                return `${this.title}, ${this.author}, ${this.publicationYear}, ${status}`;
+            }
+
+            borrow() {
+                if (!this.borrowed) {
+                    this.borrowed = true;
+                    console.log(`${this.title} has been borrowed.`);
+                } else {
+                    console.log(`${this.title} is already borrowed.`);
+                }
+            }
+        }
+
+        class FictionBook extends Book {
+            constructor(title, author, publicationYear, genre) {
+                super(title, author, publicationYear);
+                this.genre = genre;
+            }
+
+            displayInfo() {
+                return super.displayInfo() + `, ${this.genre}`;
+            }
+
+            borrow() {
+                super.borrow(); // Call the borrow method from the base class
+                console.log(`Fiction book-specific borrowing process.`);
+            }
+        }
+
+        class NonFictionBook extends Book {
+            constructor(title, author, publicationYear, topic) {
+                super(title, author, publicationYear);
+                this.topic = topic;
+            }
+
+            displayInfo() {
+                return super.displayInfo() + `, ${this.topic}`;
+            }
+
+            borrow() {
+                super.borrow(); // Call the borrow method from the base class
+                console.log(`Non-fiction book-specific borrowing process.`);
+            }
+        }
+
+        const book1 = new Book(bookTitle, 'Bradley', 2002);
+        const fictionBook = new FictionBook('Click Bait', 'Daddy', 2010, 'Military');
+        const nonFictionBook = new NonFictionBook('The Hard Way', 'Cliffe', 2002, 'Action');
+
+        const books = [book1, fictionBook, nonFictionBook];
+
+        books.forEach((book) => {
+            console.log(book.displayInfo());
+            book.borrow();
+            console.log('-----------------------');
+        });
+    </script>
+</body>
+</html>

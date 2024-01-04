@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singleton Pattern - Logger</title>
+</head>
+<body>
+   <script>
+    // Advanced OOP Patterns - Singleton Pattern:
+
+    // Logger class using the Singleton pattern
+    class Logger {
+        constructor() {
+            if (Logger.instance) {
+                return Logger.instance; // Return the existing instance if available
+            }
+
+            this.logs = [];
+            Logger.instance = this; // Store the instance in the class
+        }
+
+        log(message) {
+            const timestamp = new Date().toISOString();
+            this.logs.push({ timestamp, message });
+            console.log(`${timestamp} - ${message}`);
+        }
+
+        printLogs() {
+            this.logs.forEach(log => {
+                console.log(log.timestamp + ' - ' + log.message);
+            });
+        }
+    }
+
+    // Usage of the Logger class
+    const logger1 = new Logger(); // This instance will be shared
+    logger1.log('Log message 1');
+
+    const logger2 = new Logger(); // Using the same instance
+    logger2.log('Log message 2');
+
+    logger1.printLogs(); // Both messages will be in the logs
+
+    </script>
+</body>
+</html>

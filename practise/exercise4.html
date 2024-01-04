@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singleton</title>
+</head>
+<body>
+    <script>
+        class Singleton {
+            constructor() {
+              if (!Singleton.instance) {
+                // If an instance doesn't exist, create one
+                this.data = [];  // Example: Some data stored in the singleton
+                Singleton.instance = this;  // Store the instance
+              }
+          
+              return Singleton.instance;  // Return the existing instance
+            }
+          
+            // Add methods and properties as needed
+            addItem(item) {
+              this.data.push(item);
+            }
+          
+            getData() {
+              return this.data;
+            }
+          }
+          
+          // Usage
+          const instance1 = new Singleton();
+          instance1.addItem('Item 1');
+          
+          const instance2 = new Singleton();
+          instance2.addItem('Item 2');
+          
+          console.log(instance1.getData());  // Outputs: ['Item 1', 'Item 2']
+          console.log(instance1 === instance2);  // Outputs: true (both instances refer to the same object)          
+    </script>
+</body>
+</html>

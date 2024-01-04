@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Class and Instance</title>
+</head>
+<body>
+   <script>
+//Basic Class and Instance:
+//Create a simple JavaScript class representing a "Person."
+//The class should have properties such as name, age, and gender.
+// Implement methods to set and get these properties.
+// Create instances of the class and demonstrate the use of the methods.
+class Person{
+    constructor(name, age, gender){
+        //encapsulation, modify age
+       let _age = age;
+        this.name = name;
+        //this.age=age
+        this.gender = gender
+        //encapsulation function
+        this.getAge=function(){
+            return _age;
+        }
+    }
+    getName(){
+        return this.name;
+    }
+}
+
+//Inheritance and Method Overriding:
+//Extend the previous "Person" class to create a new class called "Student." 
+//Add new properties such as studentId and grade.
+//Implement a method specific to students, such as study().
+//Demonstrate the use of method overriding by creating a new method with the same name in the "Student" class
+
+class Student extends Person{
+    constructor(name, age, gender,studentId, grade){
+        super(name, age, gender)
+        this.studentId=studentId
+        this.grade=grade
+    }
+    study(subject){
+        console.log("my favorite subject is " + subject)
+    }
+}
+
+//Encapsulation and Private Members:
+//Modify the "Person" class to use encapsulation. 
+//Make the age property private and add a method to get the age instead.
+//Ensure that external code cannot directly access or modify the age property. 
+//Update the class instances to use the new encapsulated structure.
+
+person=new Person('cliffe',40,'male');
+student=new Student('james',20,'male',1,'A');
+person.getName()
+   </script> 
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstraction</title>
+</head>
+<body>
+    <!-- Abstraction is the process of hiding complex implementation details
+         and showing only the essential features of an object.
+         It focuses on what an object does rather than how it achieves its functionality.
+         Abstraction allows for creating a simplified model that captures the essential
+        aspects of an object while ignoring the unnecessary details.
+    -->
+    <script>
+        class Car {
+            constructor(model, make) {
+              this.model = model;
+              this.make = make;
+            }
+          
+            drive() {
+              console.log(`${this.make} ${this.model} is driving.`);
+            }
+          }
+          
+          const myCar = new Car("Accord", "Honda");
+          myCar.drive(); // Outputs: Honda Accord is driving.
+//the Car class abstracts the concept of a car,
+//focusing on its essential features like model and make, and providing a simple method drive().          
+    </script>
+</body>
+</html>

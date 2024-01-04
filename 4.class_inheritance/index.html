@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritance</title>
+</head>
+<body>
+    <script>
+        class User{
+            constructor(name,email){
+                this.name = name;
+                this.email = email;
+            }
+            login(){
+                console.log(this.email +"logged in and the user name is "+this.name);
+                return this
+            }
+            logout(){
+                console.log(this.email +"logged out and the user name is "+this.name);
+                return this
+            }
+        }
+
+        class Admin extends User{
+            delUser(user) {
+                users = users.filter(u => {
+                    return u.email != user.email;
+                });
+            }            
+        }
+        var userOne = new User('cliffe','cliffe@gmail.com');
+        var userTwo = new User('James','James@gmail.com');
+        var admin=new Admin('admin','admin@gmail.com');
+       
+        var users=[userOne,userTwo,admin]
+        admin.delUser(userOne);
+        console.log(users)
+    </script>
+</body>
+</html>

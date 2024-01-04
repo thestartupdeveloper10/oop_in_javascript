@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product and ShoppingCart</title>
+</head>
+<body>
+    <script>
+        class Product {
+            constructor(name, price, quantity) {
+                this.name = name;
+                this.price = price;
+                this.quantity = quantity;
+            }
+
+            calculateTotal() {
+                return this.price * this.quantity;
+            }
+        }
+
+        class Electronics extends Product {
+            constructor(name, price, quantity, brand) {
+                super(name, price, quantity);
+                this.brand = brand;
+            }
+
+            calculateTotal() {
+                const baseTotal = super.calculateTotal();
+                // Include additional calculations based on the 'brand' property if needed
+                return baseTotal;
+            }
+        }
+
+        class Clothing extends Product {
+            constructor(name, price, quantity, size) {
+                super(name, price, quantity);
+                this.size = size;
+            }
+
+            calculateTotal() {
+                const baseTotal = super.calculateTotal();
+                // Include additional calculations based on the 'size' property if needed
+                return baseTotal;
+            }
+        }
+
+        class ShoppingCart {
+            constructor() {
+                this.cartItems = [];
+            }
+
+            addProduct(product) {
+                this.cartItems.push(product);
+                console.log(`${product.name} has been added to the cart.`);
+            }
+
+            viewCart() {
+                console.log('--------- Cart Contents ---------');
+                this.cartItems.forEach((item, index) => {
+                    console.log(`${index + 1}. ${item.name} - Quantity: ${item.quantity}`);
+                });
+            }
+
+            calculateTotalCost() {
+                let totalCost = 0;
+                this.cartItems.forEach(item => {
+                    totalCost += item.calculateTotal();
+                });
+                console.log(`Total cost of all items in the cart: ${totalCost}`);
+            }
+        }
+
+        const product1 = new Product('Milk', 80, 4);
+        const product2 = new Electronics('Microwave', 3000, 1, 'Ramtom');
+        const product3 = new Clothing('Shirt', 1000, 3, 24);
+        const shoppingCart = new ShoppingCart();
+        
+        shoppingCart.addProduct(product1);
+        shoppingCart.addProduct(product2);
+        shoppingCart.addProduct(product3);
+
+        shoppingCart.viewCart();
+        shoppingCart.calculateTotalCost();
+    </script>
+</body>
+</html>

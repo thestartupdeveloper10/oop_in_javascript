@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encapsulationt</title>
+</head>
+<body>
+    <!-- Encapsulation is the bundling of data (attributes) and methods (functions)
+         that operate on the data into a single unit known as a class. It restricts direct access to
+        some of an object's components and can prevent unintended interference, 
+        allowing for better control and maintenance of the code. -->
+        <script>
+            class BankAccount {
+                constructor(accountNumber, balance) {
+                  this.accountNumber = accountNumber;
+                  this.balance = balance;
+                }
+              
+                deposit(amount) {
+                  this.balance += amount;
+                }
+              
+                withdraw(amount) {
+                  if (amount <= this.balance) {
+                    this.balance -= amount;
+                  } else {
+                    console.log("Insufficient funds");
+                  }
+                }
+              
+                getBalance() {
+                  return this.balance;
+                }
+              }
+              
+        </script>
+</body>
+</html>

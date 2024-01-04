@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymorphism</title>
+</head>
+<body>
+    <!-- Polymorphism is the ability of objects to take on multiple forms. 
+    In OOP, it allows objects of different classes to be treated as objects of a common base class. -->
+
+    <!-- Compile-time Polymorphism (Method Overloading):
+    This occurs when multiple methods have the same name but different parameters within the same class.
+    The correct method is chosen at compile time based on the method signature.
+    -->
+
+    <!-- Runtime Polymorphism (Method Overriding):
+    This occurs when a child class provides a specific implementation for a method that is already defined in its parent class.
+    The correct method is chosen at runtime based on the actual object type -->
+    <script>
+        //method overring
+        class Animal {
+            speak() {
+              console.log("Animal speaks");
+            }
+          }
+          
+          class Dog extends Animal {
+            speak() {
+              console.log("Dog barks");
+            }
+          }
+          
+          const animal = new Animal();
+          const dog = new Dog();
+          
+          animal.speak(); // Outputs: Animal speaks
+          dog.speak();    // Outputs: Dog barks
+         //method overloading
+         class Calculator {
+            add(a, b) {
+              if (typeof a === 'number' && typeof b === 'number') {
+                return a + b;
+              } else if (typeof a === 'string' && typeof b === 'string') {
+                return parseInt(a) + parseInt(b);
+              } else {
+                console.log("Invalid arguments");
+              }
+            }
+          }
+          
+          const calculator = new Calculator();
+          
+          console.log(calculator.add(5, 10));         // Outputs: 15 (number + number)
+          console.log(calculator.add('5', '10'));     // Outputs: 15 (string + string)
+          console.log(calculator.add('5', 10));       // Outputs: Invalid arguments
+           
+    </script>
+</body>
+</html>

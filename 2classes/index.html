@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>classes</title>
+</head>
+<body>
+    <script>
+        class User{
+            constructor(name,email){
+                this.name = name;
+                this.email = email;
+            }
+            login(){
+                console.log(this.email +"logged in and the user name is "+this.name);
+            }
+            logout(){
+                console.log(this.email +"logged out and the user name is "+this.name);
+            }
+        }
+//the new keyword creates a new empty object{}
+//set the value of 'this' to the new empty object{}
+//calls the constructor method
+        var userOne = new User('cliffe','cliffe@gmail.com');
+        var userTwo = new User('James','James@gmail.com');
+       console.log(userOne.name)
+       console.log(userOne.email)
+       console.log(userTwo.login())
+    </script>
+</body>
+</html>

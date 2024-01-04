@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polymorphism and Interfaces</title>
+</head>
+<body>
+   <script>
+    // Polymorphism and Interfaces:
+    // Create an interface (a set of method signatures) called "Shape" with methods like calculateArea() and draw().
+    // Implement this interface in multiple classes representing different shapes (e.g., Circle, Rectangle).
+    // Demonstrate polymorphism by creating an array of shapes and calling the common methods on each shape.
+
+    // Interface
+    class Shape {
+        calculateArea() {
+            // Method signature, to be implemented by derived classes
+        }
+
+        draw() {
+            // Method signature, to be implemented by derived classes
+        }
+    }
+
+    // Circle class implementing the Shape interface
+    class Circle extends Shape {
+        constructor(radius) {
+            super();
+            this.radius = radius;
+        }
+
+        calculateArea() {
+            return Math.PI * this.radius * this.radius;
+        }
+
+        draw() {
+            console.log(`Drawing a circle with radius ${this.radius}`);
+        }
+    }
+
+    // Rectangle class implementing the Shape interface
+    class Rectangle extends Shape {
+        constructor(width, height) {
+            super();
+            this.width = width;
+            this.height = height;
+        }
+
+        calculateArea() {
+            return this.width * this.height;
+        }
+
+        draw() {
+            console.log(`Drawing a rectangle with width ${this.width} and height ${this.height}`);
+        }
+    }
+//triangle
+    class Triangle extends Shape{
+        constructor(base,height){
+            super()
+            this.base=base;
+            this.height=height;
+        }
+
+
+        calculateArea() {
+            return 0.5* this.base * this.height;
+        }
+        draw() {
+            console.log(`Drawing a tringle with width ${this.base} and height ${this.height}`);
+        }
+    }
+    // Create an array of shapes (polymorphism)
+    let shapes = [
+        new Circle(5),
+        new Rectangle(4, 6),
+        new Circle(3),
+        new Rectangle(7, 2),
+        new Triangle(4,8)
+    ];
+
+    // Call common methods on each shape
+    shapes.forEach(shape => {
+        console.log(`Area: ${shape.calculateArea()}`);
+        shape.draw();
+        console.log('-----------------------');
+    });
+
+    </script>
+</body>
+</html>

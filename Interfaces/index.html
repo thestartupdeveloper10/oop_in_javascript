@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaces</title>
+</head>
+<body>
+    <!--An interface is a contract that defines a set of methods
+        (and possibly properties) that a class must implement.
+        It serves as a blueprint for creating classes and 
+        helps achieve a level of abstraction by defining a common set of methods that different classes
+        can adhere to.
+    -->
+    <script>
+        // Interface
+class Shape {
+    calculateArea() {
+      // To be implemented by subclasses
+    }
+  
+    draw() {
+      // To be implemented by subclasses
+    }
+  }
+  
+  // Implementing the interface
+  class Circle extends Shape {
+    constructor(radius) {
+      super();
+      this.radius = radius;
+    }
+  
+    calculateArea() {
+      return Math.PI * this.radius * this.radius;
+    }
+  
+    draw() {
+      console.log("Drawing a circle.");
+    }
+  }
+// Shape is an interface with methods calculateArea() and draw().
+// The Circle class implements this interface, providing concrete implementations for the methods.  
+    </script>
+</body>
+</html>
